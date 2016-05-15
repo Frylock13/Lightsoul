@@ -73,6 +73,17 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekr-SP-Jhg">
+                                <rect key="frame" x="496" y="498" width="84" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="OXX-q7-tBe"/>
+                                    <constraint firstAttribute="width" constant="85" id="Ou3-zS-CEv"/>
+                                </constraints>
+                                <state key="normal" image="attack"/>
+                                <connections>
+                                    <action selector="onAttackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2xn-Sd-9yR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -82,6 +93,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VoK-La-HlM" secondAttribute="bottom" id="21Y-Kc-9lN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SJR-UQ-SgP" secondAttribute="bottom" id="394-g2-cHO"/>
                             <constraint firstItem="VoK-La-HlM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3IM-6M-lti"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ekr-SP-Jhg" secondAttribute="bottom" constant="20" id="6Nt-E4-UEN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2cC-zi-i3H" secondAttribute="bottom" constant="66" id="H9D-Li-xcJ"/>
                             <constraint firstAttribute="trailing" secondItem="XcD-sD-tEa" secondAttribute="trailing" constant="20" id="HUa-1m-wLj"/>
                             <constraint firstItem="SbF-u7-yUf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="Hp7-PS-S7U"/>
@@ -98,6 +110,7 @@
                             <constraint firstItem="Vaw-JI-AgC" firstAttribute="centerX" secondItem="SbF-u7-yUf" secondAttribute="centerX" id="hRK-Mw-aJZ"/>
                             <constraint firstAttribute="trailing" secondItem="SbF-u7-yUf" secondAttribute="trailing" constant="64" id="iJq-EW-QJB"/>
                             <constraint firstItem="2cC-zi-i3H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="iLf-II-wWD"/>
+                            <constraint firstAttribute="trailing" secondItem="ekr-SP-Jhg" secondAttribute="trailing" constant="20" id="sMu-l3-kwH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -105,6 +118,7 @@
                         <outlet property="enemyHpLabel" destination="JKx-aD-4uR" id="wRe-ko-mwZ"/>
                         <outlet property="enemyImage" destination="gPg-dM-UGk" id="xJz-By-wcN"/>
                         <outlet property="playerHpLabel" destination="3df-6T-o8d" id="Oi7-sS-0go"/>
+                        <outlet property="playerImage" destination="2cC-zi-i3H" id="0PT-n8-awc"/>
                         <outlet property="printLabel" destination="Vaw-JI-AgC" id="rMm-Nl-E1V"/>
                     </connections>
                 </viewController>
@@ -114,6 +128,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="attack" width="198" height="223"/>
         <image name="bg" width="768" height="1024"/>
         <image name="chest" width="393" height="440"/>
         <image name="enem1" width="574" height="487"/>

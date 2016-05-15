@@ -42,4 +42,8 @@ class Character {
         _hp -= attackPower
         return true
     }
+    
+    func formattedHp() -> String {
+        return "HP: \(hp)"
+    }
 }

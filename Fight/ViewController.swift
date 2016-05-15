@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var enemyImage: UIImageView!
     
+    @IBOutlet weak var playerImage: UIImageView!
+    
     var player: Player!
     var enemy: Enemy!
     
@@ -31,8 +33,8 @@ class ViewController: UIViewController {
     
         generateEnemy()
         
-        playerHpLabel.text = "HP \(player.hp)"
-        enemyHpLabel.text = "HP \(enemy.hp)"
+        playerHpLabel.text = player.formattedHp()
+        enemyHpLabel.text = enemy.formattedHp()
         printLabel.text = "\(player.name) attacked by \(enemy.type)"
         
     }
@@ -41,7 +43,27 @@ class ViewController: UIViewController {
         
     }
     
-    func generateEnemy() {
+    @IBAction func onAttackTapped(sender: UIButton) {
+        enemy.attemptAttack(player.attackPower)
+        if enemy.isAlive {
+            enemyHpLabel.text = enemy.formattedHp()
+        } else {
+            enemyHpLabel.hidden = true
+            enemyImage.hidden = true
+            printLabel.text = "\(player.name) wins"
+        }
+        
+        player.attemptAttack(enemy.attackPower)
+        if player.isAlive {
+            playerHpLabel.text = player.formattedHp()
+        } else {
+            playerHpLabel.hidden = true
+            playerImage.hidden = true
+            printLabel.text =  "\(enemy.type) wins"
+        }
+    }
+    
+    private func generateEnemy() {
         let rand = arc4random_uniform(2)
         
         if rand == 0 {
