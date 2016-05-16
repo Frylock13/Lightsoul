@@ -25,11 +25,12 @@ class ViewController: UIViewController {
     
     var player: Player!
     var enemy: Enemy!
+    var isLooted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        player = Player(name: "Croaton", startingHp: 66, attackPower: 23)
+        player = Player(name: "Croaton", startingHp: 66, attackPower: 20)
     
         generateEnemy()
         
@@ -38,22 +39,46 @@ class ViewController: UIViewController {
         printLabel.text = "\(player.name) attacked by \(enemy.type)"
         
     }
-
-    @IBAction func onChestTapped(sender: UIButton) {
-        
-    }
     
     @IBAction func onAttackTapped(sender: UIButton) {
+        if enemy.isAlive && player.isAlive {
+            getFight()
+        }
+    }
+    
+    @IBAction func onChestTapped(sender: UIButton) {
+        let loot = enemy.dropLoot()!
+        player.getLoot(loot)
+       
+        if isLooted == false {
+            printLabel.text = "Congratulations! You get the [\(loot)]"
+            isLooted = true
+        } else {
+            printLabel.text = "Chest is empty :("
+        }
+    }
+    
+    private func getFight() {
+        playerAttacked()
+        enemyAttacked()
+    }
+    
+    private func playerAttacked() {
         enemy.attemptAttack(player.attackPower)
+        
         if enemy.isAlive {
             enemyHpLabel.text = enemy.formattedHp()
+            printLabel.text = "Attacked \(enemy.type) for \(player.attackPower) HP"
         } else {
             enemyHpLabel.hidden = true
             enemyImage.hidden = true
             printLabel.text = "\(player.name) wins"
         }
-        
+    }
+    
+    private func enemyAttacked() {
         player.attemptAttack(enemy.attackPower)
+        
         if player.isAlive {
             playerHpLabel.text = player.formattedHp()
         } else {
