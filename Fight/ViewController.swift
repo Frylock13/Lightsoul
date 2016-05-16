@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var printLabel: UILabel!
     
-    @IBOutlet weak var chestButton: UIImageView!
-    
     @IBOutlet weak var playerHpLabel: UILabel!
     
     @IBOutlet weak var enemyHpLabel: UILabel!
@@ -23,9 +21,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playerImage: UIImageView!
     
+    @IBOutlet weak var chestButton: UIButton!
+    
     var player: Player!
     var enemy: Enemy!
-    var isLooted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +47,10 @@ class ViewController: UIViewController {
     
     @IBAction func onChestTapped(sender: UIButton) {
         let loot = enemy.dropLoot()!
-        player.getLoot(loot)
-       
-        if isLooted == false {
-            printLabel.text = "Congratulations! You get the [\(loot)]"
-            isLooted = true
-        } else {
-            printLabel.text = "Chest is empty :("
-        }
+        player.addItemToInventory(loot)
+        chestButton.hidden = true
+        printLabel.text = "Congratulations! You get the [\(loot)]"
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.generateEnemy), userInfo: nil, repeats: false)
     }
     
     private func getFight() {
@@ -72,6 +67,7 @@ class ViewController: UIViewController {
         } else {
             enemyHpLabel.hidden = true
             enemyImage.hidden = true
+            chestButton.hidden = false
             printLabel.text = "\(player.name) wins"
         }
     }
@@ -88,7 +84,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func generateEnemy() {
+    func generateEnemy() {
         let rand = arc4random_uniform(2)
         
         if rand == 0 {
@@ -96,6 +92,8 @@ class ViewController: UIViewController {
         } else {
             enemy = DevilWizard(startingHp: 50, attackPower: 20)
         }
+        
+        enemyImage.hidden = false
     }
 }
 

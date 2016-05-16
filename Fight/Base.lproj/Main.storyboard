@@ -30,7 +30,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="print" translatesAutoresizingMaskIntoConstraints="NO" id="SbF-u7-yUf">
                                 <rect key="frame" x="65" y="53" width="471" height="202"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-sD-tEa">
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-sD-tEa">
                                 <rect key="frame" x="460" y="406" width="120" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="DLl-XT-NYh"/>
@@ -41,7 +41,7 @@
                                     <action selector="onChestTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="roD-w2-MBh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Player attacked by Kimara!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaw-JI-AgC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Press the atack button to attack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaw-JI-AgC">
                                 <rect key="frame" x="89" y="143" width="422" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,9 +114,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="chestButton" destination="gPg-dM-UGk" id="FKk-UJ-kQG"/>
+                        <outlet property="chestButton" destination="XcD-sD-tEa" id="1da-LY-xUr"/>
                         <outlet property="enemyHpLabel" destination="JKx-aD-4uR" id="wRe-ko-mwZ"/>
-                        <outlet property="enemyImage" destination="gPg-dM-UGk" id="xJz-By-wcN"/>
+                        <outlet property="enemyImage" destination="gPg-dM-UGk" id="y8v-Kh-xd5"/>
                         <outlet property="playerHpLabel" destination="3df-6T-o8d" id="Oi7-sS-0go"/>
                         <outlet property="playerImage" destination="2cC-zi-i3H" id="0PT-n8-awc"/>
                         <outlet property="printLabel" destination="Vaw-JI-AgC" id="rMm-Nl-E1V"/>

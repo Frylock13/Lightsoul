@@ -26,7 +26,7 @@ class Player: Character {
         }
     }
     
-    func getLoot(lootName: String) {
+    func addItemToInventory(lootName: String) {
         _inventory.append(lootName)
     }
     
