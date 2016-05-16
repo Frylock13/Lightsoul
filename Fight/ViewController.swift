@@ -29,14 +29,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        player = Player(name: "Croaton", startingHp: 66, attackPower: 20)
-    
+        generatePlayer()
         generateEnemy()
-        
-        playerHpLabel.text = player.formattedHp()
-        enemyHpLabel.text = enemy.formattedHp()
-        printLabel.text = "\(player.name) attacked by \(enemy.type)"
-        
     }
     
     @IBAction func onAttackTapped(sender: UIButton) {
@@ -84,6 +78,12 @@ class ViewController: UIViewController {
         }
     }
     
+    func generatePlayer() {
+        player = Player(name: "Croaton", startingHp: 666, attackPower: 20)
+        playerHpLabel.text = player.formattedHp()
+        
+    }
+     
     func generateEnemy() {
         let rand = arc4random_uniform(2)
         
@@ -94,6 +94,8 @@ class ViewController: UIViewController {
         }
         
         enemyImage.hidden = false
+        enemyHpLabel.hidden = false
+        enemyHpLabel.text = enemy.formattedHp()
     }
 }
 
