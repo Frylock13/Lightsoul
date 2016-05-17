@@ -44,6 +44,6 @@ class Character {
     }
     
     func formattedHp() -> String {
-        return "HP: \(hp)"
+        return "\(hp)"
     }
 }

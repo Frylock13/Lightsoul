@@ -23,6 +23,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var chestButton: UIButton!
     
+    @IBOutlet weak var playerHpImage: UILabel!
+    
+    @IBOutlet weak var enemyHpImage: UIImageView!
+    
     var player: Player!
     var enemy: Enemy!
     
@@ -62,6 +66,8 @@ class ViewController: UIViewController {
             enemyHpLabel.hidden = true
             enemyImage.hidden = true
             chestButton.hidden = false
+            enemyHpImage.hidden = true
+            
             printLabel.text = "\(player.name) wins"
         }
     }
@@ -74,6 +80,7 @@ class ViewController: UIViewController {
         } else {
             playerHpLabel.hidden = true
             playerImage.hidden = true
+            playerHpImage.hidden = true
             printLabel.text =  "\(enemy.type) wins"
         }
     }
@@ -95,6 +102,7 @@ class ViewController: UIViewController {
         
         enemyImage.hidden = false
         enemyHpLabel.hidden = false
+        enemyHpImage.hidden = false
         enemyHpLabel.text = enemy.formattedHp()
     }
 }
