@@ -46,4 +46,8 @@ class Character {
     func formattedHp() -> String {
         return "\(hp)"
     }
+    
+    func restoreHp(hp: Int) {
+        _hp += hp
+    }
 }

@@ -13,7 +13,7 @@ class Kimara: Enemy {
     let IMMUNE_MAX = 15
     
     override var loot: [String] {
-        return ["Ruby staff", "Jeggins"]
+        return ["Ruby staff", "Jeggins", "HP bottle"]
     }
     
     override var type: String {

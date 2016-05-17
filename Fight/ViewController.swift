@@ -13,20 +13,14 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var printLabel: UILabel!
-    
     @IBOutlet weak var playerHpLabel: UILabel!
-    
     @IBOutlet weak var enemyHpLabel: UILabel!
-    
     @IBOutlet weak var enemyImage: UIImageView!
-    
     @IBOutlet weak var playerImage: UIImageView!
-    
     @IBOutlet weak var chestButton: UIButton!
-    
     @IBOutlet weak var playerHpImage: UILabel!
-    
     @IBOutlet weak var enemyHpImage: UIImageView!
+    @IBOutlet weak var hpBottle: UIButton!
     
     var player: Player!
     var enemy: Enemy!
@@ -45,6 +39,7 @@ class ViewController: UIViewController {
         configureSwordsSound()
         configureGoldSound()
         configureDeathSound()
+        configureGulpSound()
     }
     
     @IBAction func onAttackTapped(sender: UIButton) {
@@ -59,10 +54,24 @@ class ViewController: UIViewController {
         let loot = enemy.dropLoot()!
         player.addItemToInventory(loot)
         
+        if loot == "HP bottle" {
+            hpBottle.hidden = false
+        }
+        
         chestButton.hidden = true
         printLabel.text = "Congratulations! You get the [\(loot)]"
         
         NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.generateEnemy), userInfo: nil, repeats: false)
+    }
+    
+    
+    @IBAction func onHpBottleTapped(sender: UIButton) {
+        playSound(gulpSound)
+        
+        let restoredHp = Int(arc4random_uniform(300))
+        player.restoreHp(restoredHp)
+        hpBottle.hidden = true
+        playerHpLabel.text = player.formattedHp()
     }
     
     private func getFight() {
@@ -162,6 +171,18 @@ class ViewController: UIViewController {
         do {
             try deathSound = AVAudioPlayer(contentsOfURL: deathSoundUrl)
             deathSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    private func configureGulpSound() {
+        let gulpSoundPath = NSBundle.mainBundle().pathForResource("gulp", ofType: "wav")
+        let gulpSoundUrl = NSURL(fileURLWithPath: gulpSoundPath!)
+        
+        do {
+            try gulpSound = AVAudioPlayer(contentsOfURL: gulpSoundUrl)
+            gulpSound.prepareToPlay()
         } catch let err as NSError {
             print(err.debugDescription)
         }

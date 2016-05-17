@@ -75,6 +75,12 @@
                                     <constraint firstAttribute="height" constant="50" id="m8t-mS-3Jd"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKx-aD-4uR">
+                                <rect key="frame" x="384" y="380" width="71" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekr-SP-Jhg">
                                 <rect key="frame" x="496" y="498" width="84" height="82"/>
                                 <constraints>
@@ -92,12 +98,17 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKx-aD-4uR">
-                                <rect key="frame" x="384" y="380" width="71" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQV-hj-YRc">
+                                <rect key="frame" x="218" y="365" width="48" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CLB-ZR-xtE"/>
+                                    <constraint firstAttribute="width" constant="35" id="ISI-7v-ISm"/>
+                                </constraints>
+                                <state key="normal" image="hp bottle"/>
+                                <connections>
+                                    <action selector="onHpBottleTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fre-nz-hY1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,6 +119,7 @@
                             <constraint firstItem="VoK-La-HlM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3IM-6M-lti"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ekr-SP-Jhg" secondAttribute="bottom" constant="20" id="6Nt-E4-UEN"/>
                             <constraint firstItem="Axg-Wz-ED3" firstAttribute="centerX" secondItem="JKx-aD-4uR" secondAttribute="centerX" id="73m-ai-I3t"/>
+                            <constraint firstItem="bQV-hj-YRc" firstAttribute="leading" secondItem="3df-6T-o8d" secondAttribute="trailing" constant="8" id="Cii-rn-l7G"/>
                             <constraint firstItem="0DB-Fl-ck1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="144" id="Eiq-Ob-kTe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2cC-zi-i3H" secondAttribute="bottom" constant="66" id="H9D-Li-xcJ"/>
                             <constraint firstAttribute="trailing" secondItem="XcD-sD-tEa" secondAttribute="trailing" constant="20" id="HUa-1m-wLj"/>
@@ -129,6 +141,7 @@
                             <constraint firstItem="2cC-zi-i3H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="iLf-II-wWD"/>
                             <constraint firstAttribute="trailing" secondItem="ekr-SP-Jhg" secondAttribute="trailing" constant="20" id="sMu-l3-kwH"/>
                             <constraint firstItem="VoK-La-HlM" firstAttribute="top" secondItem="Axg-Wz-ED3" secondAttribute="bottom" constant="80" id="svR-aH-zhe"/>
+                            <constraint firstItem="VoK-La-HlM" firstAttribute="top" secondItem="bQV-hj-YRc" secondAttribute="bottom" constant="85" id="wg0-nj-QtH"/>
                             <constraint firstItem="VoK-La-HlM" firstAttribute="top" secondItem="3df-6T-o8d" secondAttribute="bottom" constant="99" id="yjN-nK-aey"/>
                             <constraint firstItem="VoK-La-HlM" firstAttribute="top" secondItem="0DB-Fl-ck1" secondAttribute="bottom" constant="80" id="yzx-7u-fyt"/>
                             <constraint firstItem="3df-6T-o8d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="153" id="z2S-gJ-5Hu"/>
@@ -144,6 +157,7 @@
                         <outlet property="enemyHpImage" destination="Axg-Wz-ED3" id="GUk-9h-S0b"/>
                         <outlet property="enemyHpLabel" destination="JKx-aD-4uR" id="wRe-ko-mwZ"/>
                         <outlet property="enemyImage" destination="gPg-dM-UGk" id="y8v-Kh-xd5"/>
+                        <outlet property="hpBottle" destination="bQV-hj-YRc" id="MJQ-Yx-rpt"/>
                         <outlet property="playerHpImage" destination="3df-6T-o8d" id="Axs-f5-ez8"/>
                         <outlet property="playerHpLabel" destination="3df-6T-o8d" id="Oi7-sS-0go"/>
                         <outlet property="playerImage" destination="2cC-zi-i3H" id="0PT-n8-awc"/>
@@ -162,6 +176,7 @@
         <image name="enem1" width="574" height="487"/>
         <image name="ground" width="768" height="164"/>
         <image name="hp" width="568" height="506"/>
+        <image name="hp bottle" width="337" height="399"/>
         <image name="player" width="356" height="475"/>
         <image name="print" width="550" height="83"/>
     </resources>

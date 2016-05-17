@@ -10,7 +10,7 @@ import Foundation
 class DevilWizard: Enemy {
     
     override var loot: [String] {
-        return ["Magic staff", "Crystal eye"]
+        return ["Magic staff", "Crystal eye", "HP bottle"]
     }
     
     override var type: String {
