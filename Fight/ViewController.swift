@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         
         configureSwordsSound()
         configureGoldSound()
+        configureDeathSound()
     }
     
     @IBAction func onAttackTapped(sender: UIButton) {
@@ -81,6 +82,8 @@ class ViewController: UIViewController {
             enemyImage.hidden = true
             chestButton.hidden = false
             enemyHpImage.hidden = true
+            
+            playSound(deathSound)
             
             printLabel.text = "\(player.name) wins"
         }
@@ -147,6 +150,18 @@ class ViewController: UIViewController {
         do {
             try goldSound = AVAudioPlayer(contentsOfURL: goldSoundUrl)
             goldSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    private func configureDeathSound() {
+        let deathSoundPath = NSBundle.mainBundle().pathForResource("death", ofType: "wav")
+        let deathSoundUrl = NSURL(fileURLWithPath: deathSoundPath!)
+        
+        do {
+            try deathSound = AVAudioPlayer(contentsOfURL: deathSoundUrl)
+            deathSound.prepareToPlay()
         } catch let err as NSError {
             print(err.debugDescription)
         }

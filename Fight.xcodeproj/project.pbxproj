@@ -75,10 +75,7 @@
 				763E2B931CE90EBA00A751CB /* AppDelegate.swift */,
 				763E2B951CE90EBA00A751CB /* ViewController.swift */,
 				763E2BC81CEAED4100A751CB /* Characters */,
-				763E2BC61CEAEB3000A751CB /* swords.wav */,
-				763E2BC91CEB704000A751CB /* gulp.wav */,
-				763E2BCB1CEB704700A751CB /* death.wav */,
-				763E2BCD1CEB705400A751CB /* gold.wav */,
+				763E2BCF1CEB71C200A751CB /* Assets */,
 				763E2B971CE90EBA00A751CB /* Main.storyboard */,
 				763E2B9A1CE90EBA00A751CB /* Assets.xcassets */,
 				763E2B9C1CE90EBA00A751CB /* LaunchScreen.storyboard */,
@@ -97,6 +94,17 @@
 				763E2BAD1CE91C4400A751CB /* DevilWizard.swift */,
 			);
 			name = Characters;
+			sourceTree = "<group>";
+		};
+		763E2BCF1CEB71C200A751CB /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				763E2BC61CEAEB3000A751CB /* swords.wav */,
+				763E2BC91CEB704000A751CB /* gulp.wav */,
+				763E2BCB1CEB704700A751CB /* death.wav */,
+				763E2BCD1CEB705400A751CB /* gold.wav */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
