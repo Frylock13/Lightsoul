@@ -39,15 +39,8 @@ class ViewController: UIViewController {
         generatePlayer()
         generateEnemy()
         
-        let swordsSoundPath = NSBundle.mainBundle().pathForResource("swords", ofType: "wav")
-        let swordsSoundUrl = NSURL(fileURLWithPath: swordsSoundPath!)
         
-        do {
-            try swordsSound = AVAudioPlayer(contentsOfURL: swordsSoundUrl)
-            swordsSound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
+        configureSwordSound()
     }
     
     @IBAction func onAttackTapped(sender: UIButton) {
@@ -120,12 +113,24 @@ class ViewController: UIViewController {
         enemyHpLabel.text = enemy.formattedHp()
     }
     
-    func playSwordsSound() {
+    private func playSwordsSound() {
         if swordsSound.playing {
             swordsSound.stop()
         }
         
         swordsSound.play()
+    }
+    
+    private func configureSwordSound() {
+        let swordsSoundPath = NSBundle.mainBundle().pathForResource("swords", ofType: "wav")
+        let swordsSoundUrl = NSURL(fileURLWithPath: swordsSoundPath!)
+        
+        do {
+            try swordsSound = AVAudioPlayer(contentsOfURL: swordsSoundUrl)
+            swordsSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
 }
 
