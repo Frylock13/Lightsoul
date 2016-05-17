@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     var enemy: Enemy!
     
     var swordsSound: AVAudioPlayer!
+    var goldSound: AVAudioPlayer!
+    var deathSound: AVAudioPlayer!
+    var gulpSound: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +42,8 @@ class ViewController: UIViewController {
         generatePlayer()
         generateEnemy()
         
-        
-        configureSwordSound()
+        configureSwordsSound()
+        configureGoldSound()
     }
     
     @IBAction func onAttackTapped(sender: UIButton) {
@@ -50,15 +53,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onChestTapped(sender: UIButton) {
+        playSound(goldSound!)
+        
         let loot = enemy.dropLoot()!
         player.addItemToInventory(loot)
+        
         chestButton.hidden = true
         printLabel.text = "Congratulations! You get the [\(loot)]"
+        
         NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.generateEnemy), userInfo: nil, repeats: false)
     }
     
     private func getFight() {
-        playSwordsSound()
+        playSound(swordsSound)
         playerAttacked()
         enemyAttacked()
     }
@@ -113,21 +120,33 @@ class ViewController: UIViewController {
         enemyHpLabel.text = enemy.formattedHp()
     }
     
-    private func playSwordsSound() {
-        if swordsSound.playing {
-            swordsSound.stop()
+    private func playSound(sound: AVAudioPlayer) {
+        if sound.playing {
+            sound.stop()
         }
         
-        swordsSound.play()
+        sound.play()
     }
     
-    private func configureSwordSound() {
+    private func configureSwordsSound() {
         let swordsSoundPath = NSBundle.mainBundle().pathForResource("swords", ofType: "wav")
         let swordsSoundUrl = NSURL(fileURLWithPath: swordsSoundPath!)
         
         do {
             try swordsSound = AVAudioPlayer(contentsOfURL: swordsSoundUrl)
             swordsSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    private func configureGoldSound() {
+        let goldSoundPath = NSBundle.mainBundle().pathForResource("gold", ofType: "wav")
+        let goldSoundUrl = NSURL(fileURLWithPath: goldSoundPath!)
+        
+        do {
+            try goldSound = AVAudioPlayer(contentsOfURL: goldSoundUrl)
+            goldSound.prepareToPlay()
         } catch let err as NSError {
             print(err.debugDescription)
         }

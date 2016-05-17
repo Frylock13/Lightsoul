@@ -18,6 +18,9 @@
 		763E2BAC1CE91A7700A751CB /* Kimara.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E2BAB1CE91A7700A751CB /* Kimara.swift */; };
 		763E2BAE1CE91C4400A751CB /* DevilWizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E2BAD1CE91C4400A751CB /* DevilWizard.swift */; };
 		763E2BC71CEAEB3000A751CB /* swords.wav in Resources */ = {isa = PBXBuildFile; fileRef = 763E2BC61CEAEB3000A751CB /* swords.wav */; };
+		763E2BCA1CEB704000A751CB /* gulp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 763E2BC91CEB704000A751CB /* gulp.wav */; };
+		763E2BCC1CEB704700A751CB /* death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 763E2BCB1CEB704700A751CB /* death.wav */; };
+		763E2BCE1CEB705400A751CB /* gold.wav in Resources */ = {isa = PBXBuildFile; fileRef = 763E2BCD1CEB705400A751CB /* gold.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		763E2BAB1CE91A7700A751CB /* Kimara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kimara.swift; sourceTree = "<group>"; };
 		763E2BAD1CE91C4400A751CB /* DevilWizard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevilWizard.swift; sourceTree = "<group>"; };
 		763E2BC61CEAEB3000A751CB /* swords.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swords.wav; sourceTree = "<group>"; };
+		763E2BC91CEB704000A751CB /* gulp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gulp.wav; sourceTree = "<group>"; };
+		763E2BCB1CEB704700A751CB /* death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = death.wav; sourceTree = "<group>"; };
+		763E2BCD1CEB705400A751CB /* gold.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gold.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,9 @@
 				763E2B951CE90EBA00A751CB /* ViewController.swift */,
 				763E2BC81CEAED4100A751CB /* Characters */,
 				763E2BC61CEAEB3000A751CB /* swords.wav */,
+				763E2BC91CEB704000A751CB /* gulp.wav */,
+				763E2BCB1CEB704700A751CB /* death.wav */,
+				763E2BCD1CEB705400A751CB /* gold.wav */,
 				763E2B971CE90EBA00A751CB /* Main.storyboard */,
 				763E2B9A1CE90EBA00A751CB /* Assets.xcassets */,
 				763E2B9C1CE90EBA00A751CB /* LaunchScreen.storyboard */,
@@ -148,9 +157,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763E2BCA1CEB704000A751CB /* gulp.wav in Resources */,
+				763E2BCC1CEB704700A751CB /* death.wav in Resources */,
 				763E2BC71CEAEB3000A751CB /* swords.wav in Resources */,
 				763E2B9E1CE90EBA00A751CB /* LaunchScreen.storyboard in Resources */,
 				763E2B9B1CE90EBA00A751CB /* Assets.xcassets in Resources */,
+				763E2BCE1CEB705400A751CB /* gold.wav in Resources */,
 				763E2B991CE90EBA00A751CB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
