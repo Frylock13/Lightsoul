@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -30,11 +31,23 @@ class ViewController: UIViewController {
     var player: Player!
     var enemy: Enemy!
     
+    var swordsSound: AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         generatePlayer()
         generateEnemy()
+        
+        let swordsSoundPath = NSBundle.mainBundle().pathForResource("swords", ofType: "wav")
+        let swordsSoundUrl = NSURL(fileURLWithPath: swordsSoundPath!)
+        
+        do {
+            try swordsSound = AVAudioPlayer(contentsOfURL: swordsSoundUrl)
+            swordsSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     @IBAction func onAttackTapped(sender: UIButton) {
@@ -52,6 +65,7 @@ class ViewController: UIViewController {
     }
     
     private func getFight() {
+        playSwordsSound()
         playerAttacked()
         enemyAttacked()
     }
@@ -104,6 +118,14 @@ class ViewController: UIViewController {
         enemyHpLabel.hidden = false
         enemyHpImage.hidden = false
         enemyHpLabel.text = enemy.formattedHp()
+    }
+    
+    func playSwordsSound() {
+        if swordsSound.playing {
+            swordsSound.stop()
+        }
+        
+        swordsSound.play()
     }
 }
 
