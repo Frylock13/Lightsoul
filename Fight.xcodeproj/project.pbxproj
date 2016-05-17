@@ -68,11 +68,7 @@
 			children = (
 				763E2B931CE90EBA00A751CB /* AppDelegate.swift */,
 				763E2B951CE90EBA00A751CB /* ViewController.swift */,
-				763E2BA51CE90F5400A751CB /* Character.swift */,
-				763E2BA71CE912DB00A751CB /* Player.swift */,
-				763E2BA91CE9175900A751CB /* Enemy.swift */,
-				763E2BAB1CE91A7700A751CB /* Kimara.swift */,
-				763E2BAD1CE91C4400A751CB /* DevilWizard.swift */,
+				763E2BC81CEAED4100A751CB /* Characters */,
 				763E2BC61CEAEB3000A751CB /* swords.wav */,
 				763E2B971CE90EBA00A751CB /* Main.storyboard */,
 				763E2B9A1CE90EBA00A751CB /* Assets.xcassets */,
@@ -80,6 +76,18 @@
 				763E2B9F1CE90EBA00A751CB /* Info.plist */,
 			);
 			path = Fight;
+			sourceTree = "<group>";
+		};
+		763E2BC81CEAED4100A751CB /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				763E2BA51CE90F5400A751CB /* Character.swift */,
+				763E2BA71CE912DB00A751CB /* Player.swift */,
+				763E2BA91CE9175900A751CB /* Enemy.swift */,
+				763E2BAB1CE91A7700A751CB /* Kimara.swift */,
+				763E2BAD1CE91C4400A751CB /* DevilWizard.swift */,
+			);
+			name = Characters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
